@@ -34,14 +34,16 @@ If you'd like to include images to show how the pipeline works, here is how to i
 
 ### 2. Identify potential shortcomings with your current pipeline
 
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
+1. Convert the image to gray scale
+2. Blur the image using Gaussian Blur with kernel size 3
+3. Apply canny Edge Detection algorithm to blurred image to get the edges in the image
+4. Apply hough transform to the edge images to get the list of all lines
+5. Out of all lines provided by the hough transform(i.e) points check if the points are inside the boundaries from the polygon vertices this will ive all the lines/points inside the boundaries for each side of lane lines to different lists containing  slope and intercepts of points
+6. Take the mean slope and intercept for each side of line and draw only two lines on the images
+6. Combine these line image and original image to get line on the original image
 
 ### 3. Suggest possible improvements to your pipeline
+#### Shortcomings:
+1. I have observe that the lane lines are not correctly filtered i.e. getting lane lines from another part of the image
+2. I will be difficult to track the lane lines in the curve road
 
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
